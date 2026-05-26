@@ -4,7 +4,7 @@ import {
   Zap, Mail, Phone, MapPin, Globe, Shield, Award, 
   Clock, TrendingUp, LayoutDashboard, Trophy, BookOpen,
   Sparkles, CreditCard, DollarSign, Headphones, ChevronRight,
-  Users, Twitter, Facebook, Instagram, Linkedin
+  Users, Github, Linkedin, MessageCircle, Send
 } from 'lucide-react';
 
 const Footer = () => {
@@ -42,6 +42,13 @@ const Footer = () => {
     { name: 'Bitcoin', icon: DollarSign },
   ];
 
+  const socialLinks = [
+    { name: 'Twitter', icon: MessageCircle, url: '#' },
+    { name: 'GitHub', icon: Github, url: '#' },
+    { name: 'LinkedIn', icon: Linkedin, url: '#' },
+    { name: 'Telegram', icon: Send, url: '#' },
+  ];
+
   return (
     <footer className="relative mt-20">
       {/* Gradient Border Top */}
@@ -67,18 +74,15 @@ const Footer = () => {
                 social trading, and up to 95% payouts.
               </p>
               <div className="flex gap-3">
-                <a href="#" className="p-2 rounded-lg glass hover:text-neon-cyan hover:border-neon-cyan/50 transition group">
-                  <Twitter size={18} className="group-hover:scale-110 transition" />
-                </a>
-                <a href="#" className="p-2 rounded-lg glass hover:text-neon-cyan hover:border-neon-cyan/50 transition group">
-                  <Facebook size={18} className="group-hover:scale-110 transition" />
-                </a>
-                <a href="#" className="p-2 rounded-lg glass hover:text-neon-cyan hover:border-neon-cyan/50 transition group">
-                  <Instagram size={18} className="group-hover:scale-110 transition" />
-                </a>
-                <a href="#" className="p-2 rounded-lg glass hover:text-neon-cyan hover:border-neon-cyan/50 transition group">
-                  <Linkedin size={18} className="group-hover:scale-110 transition" />
-                </a>
+                {socialLinks.map((social, index) => (
+                  <a 
+                    key={index}
+                    href={social.url} 
+                    className="p-2 rounded-lg glass hover:text-neon-cyan hover:border-neon-cyan/50 transition group"
+                  >
+                    <social.icon size={18} className="group-hover:scale-110 transition" />
+                  </a>
+                ))}
               </div>
             </div>
 
